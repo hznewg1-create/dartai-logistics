@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DarTai Logistics - International Freight Forwarding from Turkey to the World">
+    <title>DarTai Logistics | دار تاي لوجيستك</title>
+
+    <!-- Google Fonts: Distinctive pairing for professional logistics brand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ============================================================
+         SUPPLEMENTAL STYLES — About blocks, Reviews, Contact
+         (Extends style.css without modifying it; reuses the same
+          class conventions as the existing .service-card / .feature
+          components so it inherits the site's look and feel.)
+    ============================================================ -->
+    <style>
+        .about-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .about-block {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .about-block-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .about-block h3 { margin: 0.25rem 0 0.75rem; }
+        .about-block p { margin: 0; line-height: 1.7; opacity: 0.85; }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .review-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        .review-card .review-stars { color: #f5a623; font-size: 1.1rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
+        .review-card .review-comment { line-height: 1.7; opacity: 0.9; margin: 0 0 0.75rem; }
+        .review-card .review-name { font-weight: 700; margin: 0; }
+        .reviews-empty { text-align: center; opacity: 0.6; grid-column: 1 / -1; }
+
+        .review-form-wrapper {
+            max-width: 640px;
+            margin: 3rem auto 0;
+            background: #fff;
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+        }
+        .review-form-wrapper h3 { text-align: center; margin-top: 0; }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            align-items: stretch;
+        }
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        .contact-icon { font-size: 1.5rem; line-height: 1; }
+        .contact-item-text h4 { margin: 0 0 0.35rem; }
+        .contact-item-text p { margin: 0; opacity: 0.85; }
+        .contact-item-text a { color: inherit; text-decoration: underline; }
+        .btn-whatsapp {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #25D366;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .contact-map {
+            min-height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; }
+            .contact-map { min-height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+         LANGUAGE SWITCHER BAR
+    ============================================================ -->
+    <div class="lang-bar" role="navigation" aria-label="Language selector">
+        <div class="container">
+            <div class="lang-buttons">
+                <button onclick="changeLanguage('ar')" id="btn-lang-ar" class="lang-btn active" aria-label="Arabic">العربية</button>
+                <button onclick="changeLanguage('en')" id="btn-lang-en" class="lang-btn" aria-label="English">English</button>
+                <button onclick="changeLanguage('tr')" id="btn-lang-tr" class="lang-btn" aria-label="Turkish">Türkçe</button>
+                <button onclick="changeLanguage('fr')" id="btn-lang-fr" class="lang-btn" aria-label="French">Français</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HEADER / STICKY NAVIGATION
+    ============================================================ -->
+    <header role="banner">
+        <div class="container header-inner">
+
+            <!-- Logo & Brand -->
+            <div class="logo-container">
+                <img src="logo.svg" alt="DarTai Logistics Logo" class="brand-logo">
+                <div class="logo-text">DarTai <span>Logistics</span></div>
+            </div>
+
+            <!-- Mobile hamburger toggle -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Main Navigation -->
+            <nav id="main-nav" role="navigation">
+                <ul>
+                    <li><a href="#home"     id="nav-home">الرئيسية</a></li>
+                    <li><a href="#about"    id="nav-about">من نحن</a></li>
+                    <li><a href="#services" id="nav-services">خدماتنا</a></li>
+                    <li><a href="#why-us"   id="nav-why">ميزاتنا</a></li>
+                    <li><a href="#reviews"  id="nav-reviews">آراء العملاء</a></li>
+                    <li><a href="#contact"  id="nav-contact">اتصل بنا</a></li>
+                    <li><a href="#quote"    id="nav-quote" class="nav-cta">طلب تسعيرة</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================================
+         HERO SECTION — Main Visual + Maps
+    ============================================================ -->
+    <section id="home" class="hero" aria-label="Hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-layout">
+
+            <!-- Text Side -->
+            <div class="hero-text-side">
+                <div class="hero-badge">🚢 Turkey → World</div>
+                <h1 id="hero-title">بوابتكم للشحن الدولي من تركيا إلى كافة دول العالم</h1>
+                <p id="hero-desc">في دار تاي لوجيستك، نقدم حلولاً لوجستية متكاملة لنقل بضائعكم من تركيا إلى أي وجهة عالمية بأعلى معايير الأمان والسرعة.</p>
+                <a href="#quote" class="btn btn-hero" id="hero-btn">اطلب تسعيرة الآن</a>
+            </div>
+
+            <!-- Maps/Graphics Side -->
+            <div class="hero-graphics-side" aria-hidden="true">
+                <div class="map-wrapper">
+                    <img src="turkey-map.png" alt="Turkey" class="hero-map">
+                    <p class="map-label">Türkiye</p>
+                </div>
+                <div class="shipping-arrow">
+                    <span class="arrow-icon">&#10132;</span>
+                </div>
+                <div class="map-wrapper">
+                    <img src="africa-map.png" alt="World" class="hero-map">
+                    <p class="map-label">World</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Decorative stats bar -->
+        <div class="hero-stats">
+            <div class="container hero-stats-inner">
+                <div class="stat-item"><span class="stat-num">50+</span><span class="stat-lbl" id="stat-countries">دولة</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-num">4</span><span class="stat-lbl" id="stat-modes">أنماط شحن</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat-item"><span class="stat-num">24/7</span><span class="stat-lbl" id="stat-support">دعم متواصل</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+    <section id="about" class="about" aria-labelledby="about-title">
+        <div class="container about-inner">
+            <div class="section-eyebrow" id="about-eyebrow">من نحن</div>
+            <h2 id="about-title">عن شركة دار تاي لوجيستك</h2>
+            <div class="about-divider"></div>
+            <p id="about-desc">نحن شركة لوجستية رائدة تتخذ من تركيا مركزاً لعملياتها. نتميز بتقديم خدمات وسيط شحن دولي متكاملة، حيث نربط الأفراد و الموسسات بالمصانع و الأسواق التركيه (الشرق الأوسط، أوروبا، أفريقيا، وأمريكا) عبر شبكة وكلاء موثوقة وخبرة طويلة في إدارة سلاسل الإمداد والتخليص الجمركي.</p>
+
+            <div class="about-blocks">
+                <div class="about-block">
+                    <div class="about-block-icon">🎯</div>
+                    <h3 id="about-mission-title">رسالتنا</h3>
+                    <p id="about-mission-desc">تسهيل حركة التجارة بين تركيا والعالم من خلال حلول شحن موثوقة وسريعة وشفافة، تمنح عملاءنا راحة البال في كل خطوة من رحلة بضائعهم.</p>
+                </div>
+                <div class="about-block">
+                    <div class="about-block-icon">🔭</div>
+                    <h3 id="about-vision-title">رؤيتنا</h3>
+                    <p id="about-vision-desc">أن نكون الوسيط اللوجستي الأول المنبثق من تركيا نحو العالم، معروفين بالابتكار والالتزام وبناء شراكات طويلة الأمد مع عملائنا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES SECTION
+    ============================================================ -->
+    <section id="services" class="services" aria-labelledby="services-main-title">
+        <div class="container">
+            <div class="section-eyebrow" id="services-eyebrow">ما نقدمه</div>
+            <h2 id="services-main-title">خدماتنا اللوجستية الشاملة</h2>
+            <div class="about-divider"></div>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">🚛</div>
+                    <h3 id="srv-road-title">الشحن البري الدولي</h3>
+                    <p id="srv-road-desc">تسيير رحلات شحن بري منتظمة من تركيا إلى الدول المجاورة وأوروبا والشرق الأوسط، للحمولات الكاملة والمجزأة.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚢</div>
+                    <h3 id="srv-sea-title">الشحن البحري العالمي</h3>
+                    <p id="srv-sea-desc">تأمين حاويات الشحن بجميع أحجامها عبر الموانئ التركية الرئيسية إلى كافة الموانئ العالمية بأفضل الأسعار الملاحية.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3 id="srv-air-title">الشحن الجوي السريع</h3>
+                    <p id="srv-air-desc">حلول الشحن الجوي المستعجل للبضائع الحساسة والتجارية من المطارات التركية إلى وجهتكم حول العالم في وقت قياسي.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3 id="srv-customs-title">التخليص الجمركي والاستشارات</h3>
+                    <p id="srv-customs-desc">إنهاء كافة المعاملات الجمركية لعمليات التصدير من تركيا وإعداد الأوراق الرسمية لضمان خروج بضائعكم بسلاسة.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         WHY US / FEATURES SECTION
+    ============================================================ -->
+    <section id="why-us" class="why-us" aria-labelledby="why-main-title">
+        <div class="container">
+            <div class="section-eyebrow light" id="why-eyebrow">لماذا نحن</div>
+            <h2 id="why-main-title">لماذا تعتمد الشركات على دار تاي؟</h2>
+            <div class="about-divider light"></div>
+
+            <div class="features">
+                <div class="feature" id="feat-1">🌍 <strong>تغطية عالمية:</strong> نشحن بضائعكم من تركيا إلى أي نقطة في العالم دون قيود.</div>
+                <div class="feature" id="feat-2">🔒 <strong>أمان وموثوقية:</strong> نتابع الشحنات خطوة بخطوة ونختار أفضل خطوط النقل لحماية استثماراتكم.</div>
+                <div class="feature" id="feat-3">💼 <strong>أسعار تنافسية:</strong> علاقاتنا القوية مع شركات النقل تتيح لنا تقديم أفضل عروض الأسعار في السوق التركي.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         REVIEWS / YORUMLAR SECTION
+    ============================================================ -->
+    <section id="reviews" class="reviews" aria-labelledby="reviews-main-title">
+        <div class="container">
+            <div class="section-eyebrow" id="reviews-eyebrow">آراء العملاء</div>
+            <h2 id="reviews-main-title">ماذا يقول عملاؤنا</h2>
+            <div class="about-divider"></div>
+
+            <!-- Dynamically rendered review cards -->
+            <div class="reviews-grid" id="reviews-grid"></div>
+
+            <!-- Local review submission form -->
+            <div class="review-form-wrapper">
+                <h3 id="review-form-title">شاركنا رأيك</h3>
+                <form id="review-form" novalidate>
+                    <div class="form-group">
+                        <label for="review-name" id="lbl-review-name">الاسم</label>
+                        <input type="text" id="review-name" required placeholder="اكتب اسمك">
+                    </div>
+                    <div class="form-group">
+                        <label for="review-rating" id="lbl-review-rating">التقييم</label>
+                        <select id="review-rating" required>
+                            <option value="5">★★★★★ (5/5)</option>
+                            <option value="4">★★★★☆ (4/5)</option>
+                            <option value="3">★★★☆☆ (3/5)</option>
+                            <option value="2">★★☆☆☆ (2/5)</option>
+                            <option value="1">★☆☆☆☆ (1/5)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment" id="lbl-review-comment">تعليقك</label>
+                        <textarea id="review-comment" rows="4" required placeholder="اكتب تجربتك معنا..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit" id="btn-review-submit">إرسال التقييم</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
+    <section id="contact" class="contact" aria-labelledby="contact-main-title">
+        <div class="container">
+            <div class="section-eyebrow" id="contact-eyebrow">تواصل معنا</div>
+            <h2 id="contact-main-title">معلومات التواصل</h2>
+            <div class="about-divider"></div>
+
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">📍</span>
+                        <div class="contact-item-text">
+                            <h4 id="contact-address-label">العنوان</h4>
+                            <p id="contact-address-value">يني بوسنا، مجمع كويومجوكنت، رقم 12، بهتشة ليفلر، إسطنبول / تركيا</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">📞</span>
+                        <div class="contact-item-text">
+                            <h4 id="contact-phone-label">الهاتف</h4>
+                            <p><a href="tel:+905321234567" id="contact-phone-value">+90 532 123 45 67</a></p>
+                            <a href="https://wa.me/905321234567" target="_blank" rel="noopener" class="btn btn-whatsapp" id="contact-whatsapp-btn">تواصل عبر واتساب</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">✉️</span>
+                        <div class="contact-item-text">
+                            <h4 id="contact-email-label">البريد الإلكتروني</h4>
+                            <p><a href="mailto:info@dartailogistics.com" id="contact-email-value">info@dartailogistics.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">🕒</span>
+                        <div class="contact-item-text">
+                            <h4 id="contact-hours-label">ساعات العمل</h4>
+                            <p id="contact-hours-value">الإثنين - السبت: 09:00 صباحاً - 18:00 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map" aria-label="Google Maps location">
+                    <iframe
+                        id="contact-map-iframe"
+                        src="https://www.google.com/maps?q=Istanbul,Turkey&output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="DarTai Logistics Location">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         QUOTE REQUEST FORM — Connected to Formspree
+    ============================================================ -->
+    <section id="quote" class="quote" aria-labelledby="quote-main-title">
+        <div class="container">
+            <div class="section-eyebrow" id="quote-eyebrow">تواصل معنا</div>
+            <h2 id="quote-main-title">طلب عرض سعر شحن</h2>
+            <div class="about-divider"></div>
+
+            <form
+                action="https://formspree.io/f/xbdbkzrj"
+                method="POST"
+                id="quote-form"
+                novalidate
+            >
+                <!-- Client Name / Company -->
+                <div class="form-group">
+                    <label for="input-name" id="lbl-name">الاسم الكامل / اسم الشركة</label>
+                    <input
+                        type="text"
+                        id="input-name"
+                        name="Client_Name"
+                        required
+                        placeholder="مثال: شركة دار تاي"
+                        autocomplete="organization"
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="input-email" id="lbl-email">البريد الإلكتروني الرسمي</label>
+                    <input
+                        type="email"
+                        id="input-email"
+                        name="Client_Email"
+                        required
+                        placeholder="info@dartailogistics.com"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <!-- Phone (with country code) -->
+                <div class="form-group">
+                    <label for="input-phone" id="lbl-phone">رقم الهاتف (مع رمز الدولة)</label>
+                    <input
+                        type="tel"
+                        id="input-phone"
+                        name="Client_Phone"
+                        required
+                        placeholder="+905xxxxxxxxx"
+                        autocomplete="tel"
+                    >
+                </div>
+
+                <!-- Shipping Type Dropdown -->
+                <div class="form-group">
+                    <label for="select-type" id="lbl-type">نوع الشحن المطلوب</label>
+                    <select id="select-type" name="Shipping_Type" required>
+                        <option value="" disabled selected>اختر نمط الشحن...</option>
+                    </select>
+                </div>
+
+                <!-- Shipment Details Textarea -->
+                <div class="form-group">
+                    <label for="textarea-details" id="lbl-details">تفاصيل الشحنة (الوزن، الحجم، مدينة الانطلاق في تركيا، دولة ومدينة الوصول)</label>
+                    <textarea
+                        id="textarea-details"
+                        name="Shipment_Details"
+                        rows="4"
+                        placeholder="مثال: شحن ملابس 2 طن من إسطنبول إلى الرياض..."
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-submit" id="btn-submit">إرسال طلب التسعيرة</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer role="contentinfo">
+        <div class="container footer-inner">
+            <div class="footer-brand">DarTai <span>Logistics</span></div>
+            <p id="footer-text">© 2026 جميع الحقوق محفوظة لشركة DarTai Logistics | تركيا</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         JAVASCRIPT — Language System + Form Handler + Mobile Nav
+    ============================================================ -->
+    <script>
+
+        // ——————————————————————————————————————————
+        // TRANSLATIONS DICTIONARY
+        // Supports: Arabic (ar), English (en), Turkish (tr), French (fr)
+        // ——————————————————————————————————————————
+        const translations = {
+            ar: {
+                dir: "rtl",
+                navHome: "الرئيسية", navAbout: "من نحن", navServices: "خدماتنا", navWhy: "ميزاتنا", navQuote: "طلب تسعيرة",
+                heroTitle: "بوابتكم للشحن الدولي من تركيا إلى كافة دول العالم",
+                heroDesc: "في دار تاي لوجيستك، نقدم حلولاً لوجستية متكاملة لنقل بضائعكم من تركيا إلى أي وجهة عالمية بأعلى معايير الأمان والسرعة.",
+                heroBtn: "اطلب تسعيرة الآن",
+                statCountries: "دولة مخدومة", statModes: "أنماط شحن", statSupport: "دعم متواصل",
+                aboutEyebrow: "من نحن", aboutTitle: "عن شركة دار تاي لوجيستك",
+                aboutDesc: "نحن شركة لوجستية رائدة تتخذ من تركيا مركزاً لعملياتها. نتميز بتقديم خدمات وسيط شحن دولي متكاملة، حيث نربط المصانع والشركات التركية بالأسواق العالمية (الشرق الأوسط، أوروبا، أفريقيا، وأمريكا) عبر شبكة وكلاء موثوقة وخبرة طويلة في إدارة سلاسل الإمداد والتخليص الجمركي.",
+                servicesEyebrow: "ما نقدمه", servicesMainTitle: "خدماتنا اللوجستية الشاملة",
+                srvRoadTitle: "الشحن البري الدولي",     srvRoadDesc: "تسيير رحلات شحن بري منتظمة من تركيا إلى الدول المجاورة وأوروبا والشرق الأوسط، للحمولات الكاملة والمجزأة.",
+                srvSeaTitle:  "الشحن البحري العالمي",  srvSeaDesc:  "تأمين حاويات الشحن بجميع أحجامها عبر الموانئ التركية الرئيسية إلى كافة الموانئ العالمية بأفضل الأسعار الملاحية.",
+                srvAirTitle:  "الشحن الجوي السريع",    srvAirDesc:  "حلول الشحن الجوي المستعجل للبضائع الحساسة والتجارية من المطارات التركية إلى وجهتكم حول العالم في وقت قياسي.",
+                srvCustomsTitle: "التخليص الجمركي والاستشارات", srvCustomsDesc: "إنهاء كافة المعاملات الجمركية لعمليات التصدير من تركيا وإعداد الأوراق الرسمية لضمان خروج بضائعكم بسلاسة.",
+                whyEyebrow: "لماذا نحن", whyMainTitle: "لماذا تعتمد الشركات على دار تاي؟",
+                feat1: "🌍 <strong>تغطية عالمية:</strong> نشحن بضائعكم من تركيا إلى أي نقطة في العالم دون قيود.",
+                feat2: "🔒 <strong>أمان وموثوقية:</strong> نتابع الشحنات خطوة بخطوة ونختار أفضل خطوط النقل لحماية استثماراتكم.",
+                feat3: "💼 <strong>أسعار تنافسية:</strong> علاقاتنا القوية مع شركات النقل تتيح لنا تقديم أفضل عروض الأسعار في السوق التركي.",
+                quoteEyebrow: "تواصل معنا", quoteMainTitle: "طلب عرض سعر شحن",
+                lblName: "الاسم الكامل / اسم الشركة", lblEmail: "البريد الإلكتروني الرسمي",
+                lblPhone: "رقم الهاتف (مع رمز الدولة)",
+                lblType: "نوع الشحن المطلوب",
+                lblDetails: "تفاصيل الشحنة (الوزن، الحجم، مدينة الانطلاق في تركيا، دولة ومدينة الوصول)",
+                btnSubmit: "إرسال طلب التسعيرة",
+                options: ["شحن بري دولي", "شحن بحري عالمي", "شحن جوي سريع", "تخليص جمركي واستشارات"],
+                alertMsg: "شكراً لتواصلك مع دار تاي لوجيستك! تم استلام تفاصيل شحنتك بنجاح وسيقوم فريقنا بدراسة الأسعار والتواصل معك سريعاً.",
+                footerText: "© 2026 جميع الحقوق محفوظة لشركة DarTai Logistics | تركيا",
+
+                // Nav additions
+                navReviews: "آراء العملاء", navContact: "اتصل بنا",
+
+                // About — Mission & Vision
+                aboutMissionTitle: "رسالتنا",
+                aboutMissionDesc: "تسهيل حركة التجارة بين تركيا والعالم من خلال حلول شحن موثوقة وسريعة وشفافة، تمنح عملاءنا راحة البال في كل خطوة من رحلة بضائعهم.",
+                aboutVisionTitle: "رؤيتنا",
+                aboutVisionDesc: "أن نكون الوسيط اللوجستي الأول المنبثق من تركيا نحو العالم، معروفين بالابتكار والالتزام وبناء شراكات طويلة الأمد مع عملائنا.",
+
+                // Reviews / يورومار
+                reviewsEyebrow: "آراء العملاء", reviewsMainTitle: "ماذا يقول عملاؤنا",
+                reviewFormTitle: "شاركنا رأيك",
+                lblReviewName: "الاسم", lblReviewRating: "التقييم", lblReviewComment: "تعليقك",
+                reviewNamePlaceholder: "اكتب اسمك", reviewCommentPlaceholder: "اكتب تجربتك معنا...",
+                btnReviewSubmit: "إرسال التقييم",
+                reviewsEmpty: "كن أول من يشارك رأيه!",
+                seedReviews: [
+                    { name: "أحمد المصري", rating: 5, comment: "خدمة احترافية وسرعة في تخليص شحنتي الجوية من إسطنبول. أنصح بالتعامل معهم بدون تردد." },
+                    { name: "سارة يوسف", rating: 5, comment: "تواصل ممتاز طوال رحلة الشحن البحري، وتحديثات مستمرة عن حالة البضاعة." },
+                    { name: "خالد بن سالم", rating: 4, comment: "أسعار تنافسية وفريق متعاون في التخليص الجمركي، تجربة جيدة جداً." }
+                ],
+
+                // Contact
+                contactEyebrow: "تواصل معنا", contactMainTitle: "معلومات التواصل",
+                contactAddressLabel: "العنوان",
+                contactAddressValue: "يني بوسنا، مجمع كويومجوكنت، رقم 12، بهتشة ليفلر، إسطنبول / تركيا",
+                contactPhoneLabel: "الهاتف",
+                contactWhatsappBtn: "تواصل عبر واتساب",
+                contactEmailLabel: "البريد الإلكتروني",
+                contactHoursLabel: "ساعات العمل",
+                contactHoursValue: "الإثنين - السبت: 09:00 صباحاً - 18:00 مساءً"
+            },
+            en: {
+                dir: "ltr",
+                navHome: "Home", navAbout: "About Us", navServices: "Services", navWhy: "Features", navQuote: "Get a Quote",
+                heroTitle: "Your Gateway for International Shipping from Turkey to the World",
+                heroDesc: "At DarTai Logistics, we provide integrated logistics solutions to transport your goods from Turkey to any global destination with the highest standards of safety and speed.",
+                heroBtn: "Request a Quote Now",
+                statCountries: "Countries Served", statModes: "Shipping Modes", statSupport: "Round-the-Clock Support",
+                aboutEyebrow: "Who We Are", aboutTitle: "About DarTai Logistics",
+                aboutDesc: "We are a leading logistics company based in Turkey, specializing in comprehensive international freight forwarding. We connect Turkish factories and businesses with global markets (Middle East, Europe, Africa, and America) through a trusted agent network and extensive expertise in supply chain management and customs clearance.",
+                servicesEyebrow: "What We Offer", servicesMainTitle: "Our Comprehensive Logistics Services",
+                srvRoadTitle: "International Road Freight",   srvRoadDesc: "Regular road freight trips from Turkey to neighboring countries, Europe, and the Middle East for FCL and LCL shipments.",
+                srvSeaTitle:  "Global Ocean Freight",         srvSeaDesc:  "Securing shipping containers of all sizes from major Turkish ports to all worldwide ports at the best maritime freight rates.",
+                srvAirTitle:  "Express Air Freight",          srvAirDesc:  "Urgent air cargo solutions for sensitive and commercial goods from Turkish airports to your destination worldwide in record time.",
+                srvCustomsTitle: "Customs Clearance & Consulting", srvCustomsDesc: "Handling all customs procedures for export operations from Turkey and preparing official documentation to ensure smooth cargo departure.",
+                whyEyebrow: "Why Us", whyMainTitle: "Why Do Businesses Rely on DarTai?",
+                feat1: "🌍 <strong>Global Coverage:</strong> We ship your goods from Turkey to any point worldwide without restrictions.",
+                feat2: "🔒 <strong>Safety & Reliability:</strong> We monitor cargo step-by-step and select top shipping lines to protect your investments.",
+                feat3: "💼 <strong>Competitive Rates:</strong> Our strong partnerships with carriers allow us to provide the best rates in the Turkish market.",
+                quoteEyebrow: "Contact Us", quoteMainTitle: "Request a Shipping Quote",
+                lblName: "Full Name / Company Name", lblEmail: "Official Email Address",
+                lblPhone: "Phone Number (with Country Code)",
+                lblType: "Required Shipping Type",
+                lblDetails: "Shipment Details (Weight, Volume, Origin City in Turkey, Destination Country & City)",
+                btnSubmit: "Submit Quote Request",
+                options: ["International Road Freight", "Global Ocean Freight", "Express Air Freight", "Customs Clearance & Consulting"],
+                alertMsg: "Thank you for contacting DarTai Logistics! Your shipment details have been successfully received. Our team will analyze rates and contact you shortly.",
+                footerText: "© 2026 DarTai Logistics | Turkey. All Rights Reserved.",
+
+                // Nav additions
+                navReviews: "Reviews", navContact: "Contact Us",
+
+                // About — Mission & Vision
+                aboutMissionTitle: "Our Mission",
+                aboutMissionDesc: "To facilitate trade between Turkey and the world through reliable, fast, and transparent shipping solutions that give our clients peace of mind at every step of their cargo's journey.",
+                aboutVisionTitle: "Our Vision",
+                aboutVisionDesc: "To be the leading logistics broker originating from Turkey to the world, recognized for innovation, commitment, and building long-term partnerships with our clients.",
+
+                // Reviews
+                reviewsEyebrow: "Reviews", reviewsMainTitle: "What Our Clients Say",
+                reviewFormTitle: "Share Your Feedback",
+                lblReviewName: "Name", lblReviewRating: "Rating", lblReviewComment: "Your Comment",
+                reviewNamePlaceholder: "Enter your name", reviewCommentPlaceholder: "Share your experience with us...",
+                btnReviewSubmit: "Submit Review",
+                reviewsEmpty: "Be the first to share your feedback!",
+                seedReviews: [
+                    { name: "Ahmed El-Masry", rating: 5, comment: "Professional service and fast customs clearance for my air shipment from Istanbul. Highly recommended." },
+                    { name: "Sarah Youssef", rating: 5, comment: "Excellent communication throughout the ocean freight process, with constant updates on my cargo status." },
+                    { name: "Khaled Ben Salem", rating: 4, comment: "Competitive pricing and a cooperative customs team. Overall a very good experience." }
+                ],
+
+                // Contact
+                contactEyebrow: "Contact Us", contactMainTitle: "Get in Touch",
+                contactAddressLabel: "Address",
+                contactAddressValue: "Yenibosna, Kuyumcukent Complex, No:12, Bahçelievler, Istanbul / Turkey",
+                contactPhoneLabel: "Phone",
+                contactWhatsappBtn: "Chat on WhatsApp",
+                contactEmailLabel: "Email",
+                contactHoursLabel: "Operating Hours",
+                contactHoursValue: "Monday - Saturday: 09:00 AM - 06:00 PM"
+            },
+            tr: {
+                dir: "ltr",
+                navHome: "Anasayfa", navAbout: "Hakkımızda", navServices: "Hizmetlerimiz", navWhy: "Özelliklerimiz", navQuote: "Teklif Al",
+                heroTitle: "Türkiye'den Tüm Dünyaya Uluslararası Taşımacılıkta Güvenli Kapınız",
+                heroDesc: "DarTai Logistics olarak, yüklerinizi Türkiye'den dünyanın her yerine en yüksek güvenlik ve hız standartlarıyla taşımak için entegre lojistik çözümler sunuyoruz.",
+                heroBtn: "Hemen Teklif Al",
+                statCountries: "Hizmet Verilen Ülke", statModes: "Taşıma Modu", statSupport: "Kesintisiz Destek",
+                aboutEyebrow: "Hakkımızda", aboutTitle: "DarTai Logistics Hakkında",
+                aboutDesc: "Türkiye merkezli lider bir lojistik firması olarak, kapsamlı uluslararası navlun taşımacılığı hizmetleri sunuyoruz. Güvenilir acente ağımız, tedarik zinciri yönetimi ve gümrükleme konularındaki derin uzmanlığımızla Türk üreticilerini ve firmalarını küresel pazarlara (Orta Doğu, Avrupa, Afrika ve Amerika) bağlıyoruz.",
+                servicesEyebrow: "Sunduklarımız", servicesMainTitle: "Kapsamlı Lojistik Hizmetlerimiz",
+                srvRoadTitle: "Uluslararası Karayolu",    srvRoadDesc: "Komple (FTL) ve parsiyel (LTL) yükleriniz için Türkiye'den çevre ülkelere, Avrupa'ya ve Orta Doğu'ya düzenli karayolu taşımacılığı seferleri.",
+                srvSeaTitle:  "Küresel Denizyolu",        srvSeaDesc:  "Türkiye'nin ana limanlarından tüm dünya limanlarına her boyutta konteyner taşımacılığını en avantajlı navlun fiyatlarıyla sağlıyoruz.",
+                srvAirTitle:  "Hızlı Havayolu Kargo",    srvAirDesc:  "Türkiye'deki havalimanlarından dünya genelindeki varış noktanıza, hassas ve ticari yükleriniz için rekor sürede acil havayolu çözümleri.",
+                srvCustomsTitle: "Gümrükleme ve Danışmanlık", srvCustomsDesc: "Türkiye'den yapılacak ihracat işlemlerine ait tüm gümrük süreçlerinin takibi ve yüklerinizin sorunsuz çıkışı için resmi evrakların hazırlanması.",
+                whyEyebrow: "Neden Biz", whyMainTitle: "Şirketler Neden DarTai'ı Seçiyor?",
+                feat1: "🌍 <strong>Küresel Kapsama:</strong> Yüklerinizi Türkiye'den dünyanın herhangi bir noktasına sınırlama olmaksızın gönderiyoruz.",
+                feat2: "🔒 <strong>Güvenlik ve İtibar:</strong> Gönderileri adım adım takip ediyor, yatırımlarınızı korumak için en iyi taşıma hatlarını seçiyoruz.",
+                feat3: "💼 <strong>Rekabetçi Fiyatlar:</strong> Taşıyıcılarla olan güçlü ortaklıklarımız, Türkiye pazarındaki en iyi navlun fiyatlarını sunmamızı sağlıyor.",
+                quoteEyebrow: "Bize Ulaşın", quoteMainTitle: "Navlun Teklifi İsteyin",
+                lblName: "Ad Soyad / Şirket Adı", lblEmail: "Resmi E-posta Adresi",
+                lblPhone: "Telefon Numarası (Ülke Kodu ile)",
+                lblType: "İstenen Taşımacılık Türü",
+                lblDetails: "Gönderi Detayları (Ağırlık, Hacim, Türkiye Çıkış Şehri, Varış Ülkesi ve Şehri)",
+                btnSubmit: "Teklif Talebini Gönder",
+                options: ["Uluslararası Karayolu", "Küresel Denizyolu", "Hızlı Havayolu Kargo", "Gümrükleme ve Danışmanlık"],
+                alertMsg: "DarTai Logistics ile iletişime geçtiğiniz için teşekkür ederiz! Gönderi detaylarınız başarıyla alındı. Ekibimiz navlun fiyatlarını inceleyip en kısa sürede sizinle iletişime geçecektir.",
+                footerText: "© 2026 DarTai Logistics | Türkiye. Tüm Hakları Saklıdır.",
+
+                // Nav additions
+                navReviews: "Yorumlar", navContact: "İletişim",
+
+                // About — Mission & Vision
+                aboutMissionTitle: "Misyonumuz",
+                aboutMissionDesc: "Türkiye ile dünya arasındaki ticareti, müşterilerimize yüklerinin her aşamasında güven veren, güvenilir, hızlı ve şeffaf taşımacılık çözümleriyle kolaylaştırmak.",
+                aboutVisionTitle: "Vizyonumuz",
+                aboutVisionDesc: "Türkiye'den dünyaya açılan, yenilikçiliği, güvenilirliği ve müşterileriyle kurduğu uzun soluklu ortaklıklarla tanınan lider lojistik aracı kurum olmak.",
+
+                // Yorumlar (Reviews)
+                reviewsEyebrow: "Yorumlar", reviewsMainTitle: "Müşterilerimiz Ne Diyor",
+                reviewFormTitle: "Görüşünüzü Paylaşın",
+                lblReviewName: "Ad Soyad", lblReviewRating: "Puan", lblReviewComment: "Yorumunuz",
+                reviewNamePlaceholder: "Adınızı girin", reviewCommentPlaceholder: "Deneyiminizi bizimle paylaşın...",
+                btnReviewSubmit: "Yorumu Gönder",
+                reviewsEmpty: "Görüşünü paylaşan ilk kişi siz olun!",
+                seedReviews: [
+                    { name: "Ahmed El-Masry", rating: 5, comment: "İstanbul'dan yaptığım hava kargo gönderimde profesyonel hizmet ve hızlı gümrükleme. Kesinlikle tavsiye ederim." },
+                    { name: "Sarah Youssef", rating: 5, comment: "Deniz yolu taşımacılığı sürecinde mükemmel iletişim ve yükümün durumu hakkında sürekli güncelleme aldım." },
+                    { name: "Khaled Ben Salem", rating: 4, comment: "Rekabetçi fiyatlar ve işbirlikçi bir gümrük ekibi. Genel olarak çok iyi bir deneyimdi." }
+                ],
+
+                // İletişim (Contact)
+                contactEyebrow: "İletişim", contactMainTitle: "Bize Ulaşın",
+                contactAddressLabel: "Adres",
+                contactAddressValue: "Yenibosna, Kuyumcukent Sitesi, No:12, Bahçelievler, İstanbul / Türkiye",
+                contactPhoneLabel: "Telefon",
+                contactWhatsappBtn: "WhatsApp'tan Yazın",
+                contactEmailLabel: "E-posta",
+                contactHoursLabel: "Çalışma Saatleri",
+                contactHoursValue: "Pazartesi - Cumartesi: 09:00 - 18:00"
+            },
+            fr: {
+                dir: "ltr",
+                navHome: "Accueil", navAbout: "À Propos", navServices: "Services", navWhy: "Avantages", navQuote: "Devis",
+                heroTitle: "Votre Passerelle pour le Transport International de la Turquie vers le Monde",
+                heroDesc: "Chez DarTai Logistics, nous fournissons des solutions logistiques intégrées pour transporter vos marchandises de la Turquie vers n'importe quelle destination mondiale avec les plus hauts standards de sécurité et de rapidité.",
+                heroBtn: "Demander un Devis Maintenant",
+                statCountries: "Pays Desservis", statModes: "Modes de Transport", statSupport: "Support Continu",
+                aboutEyebrow: "Qui Sommes-Nous", aboutTitle: "À Propos de DarTai Logistics",
+                aboutDesc: "Nous sommes une entreprise de logistique de premier plan basée en Turquie, spécialisée dans le commissionnement de transport international. Nous connectons les usines et entreprises turques aux marchés mondiaux (Moyen-Orient, Europe, Afrique et Amérique) grâce à un réseau d'agents de confiance et une vaste expertise en gestion de la chaîne d'approvisionnement et en dédouanement.",
+                servicesEyebrow: "Ce Que Nous Offrons", servicesMainTitle: "Nos Services Logistiques Complets",
+                srvRoadTitle: "Transport Routier International", srvRoadDesc: "Trajets de fret routier réguliers depuis la Turquie vers les pays voisins, l'Europe et le Moyen-Orient pour les cargaisons complètes et partielles.",
+                srvSeaTitle:  "Transport Maritime Global",       srvSeaDesc:  "Sécurisation de conteneurs de toutes tailles depuis les principaux ports turcs vers tous les ports mondiaux aux meilleurs tarifs de fret maritime.",
+                srvAirTitle:  "Fret Aérien Express",            srvAirDesc:  "Solutions de fret aérien urgent pour les marchandises sensibles et commerciales depuis les aéroports turcs vers votre destination dans le monde entier en temps record.",
+                srvCustomsTitle: "Dédouanement & Conseil", srvCustomsDesc: "Prise en charge de toutes les procédures douanières pour les opérations d'exportation depuis la Turquie et préparation de la documentation officielle pour garantir un départ fluide du fret.",
+                whyEyebrow: "Pourquoi Nous", whyMainTitle: "Pourquoi les Entreprises Font-elles Confiance à DarTai?",
+                feat1: "🌍 <strong>Couverture Globale:</strong> Nous expédions vos marchandises de la Turquie vers n'importe quel point du globe sans restrictions.",
+                feat2: "🔒 <strong>Sécurité & Fiabilité:</strong> Nous suivons le fret étape par étape et sélectionnons les meilleures lignes maritimes pour protéger vos investissements.",
+                feat3: "💼 <strong>Tarifs Compétitifs:</strong> Nos partenariats solides avec les transporteurs nous permettent de fournir les meilleurs tarifs du marché turc.",
+                quoteEyebrow: "Contactez-Nous", quoteMainTitle: "Demander un Devis de Transport",
+                lblName: "Nom Complet / Nom de l'Entreprise", lblEmail: "Adresse E-mail Officielle",
+                lblPhone: "Numéro de Téléphone (avec indicatif)",
+                lblType: "Type de Transport Requis",
+                lblDetails: "Détails de la Cargaison (Poids, Volume, Ville de Départ en Turquie, Pays & Ville de Destination)",
+                btnSubmit: "Envoyer la Demande",
+                options: ["Transport Routier International", "Transport Maritime Global", "Fret Aérien Express", "Dédouanement & Conseil"],
+                alertMsg: "Merci d'avoir contacté DarTai Logistics ! Les détails de votre expédition ont été reçus avec succès. Notre équipe va étudier les tarifs et vous contactera sous peu.",
+                footerText: "© 2026 DarTai Logistics | Turquie. Tous droits réservés.",
+
+                // Nav additions
+                navReviews: "Avis", navContact: "Contact",
+
+                // About — Mission & Vision
+                aboutMissionTitle: "Notre Mission",
+                aboutMissionDesc: "Faciliter le commerce entre la Turquie et le monde grâce à des solutions de transport fiables, rapides et transparentes, offrant à nos clients une tranquillité d'esprit à chaque étape du parcours de leur cargaison.",
+                aboutVisionTitle: "Notre Vision",
+                aboutVisionDesc: "Être le premier commissionnaire de transport reliant la Turquie au monde, reconnu pour son innovation, son engagement et ses partenariats durables avec ses clients.",
+
+                // Avis (Reviews)
+                reviewsEyebrow: "Avis", reviewsMainTitle: "Ce Que Disent Nos Clients",
+                reviewFormTitle: "Partagez Votre Avis",
+                lblReviewName: "Nom", lblReviewRating: "Note", lblReviewComment: "Votre Commentaire",
+                reviewNamePlaceholder: "Entrez votre nom", reviewCommentPlaceholder: "Partagez votre expérience avec nous...",
+                btnReviewSubmit: "Envoyer l'Avis",
+                reviewsEmpty: "Soyez le premier à partager votre avis !",
+                seedReviews: [
+                    { name: "Ahmed El-Masry", rating: 5, comment: "Service professionnel et dédouanement rapide pour mon envoi aérien depuis Istanbul. Je recommande vivement." },
+                    { name: "Sarah Youssef", rating: 5, comment: "Excellente communication tout au long du transport maritime, avec des mises à jour constantes sur ma cargaison." },
+                    { name: "Khaled Ben Salem", rating: 4, comment: "Tarifs compétitifs et équipe douanière coopérative. Dans l'ensemble, une très bonne expérience." }
+                ],
+
+                // Contact
+                contactEyebrow: "Contact", contactMainTitle: "Contactez-Nous",
+                contactAddressLabel: "Adresse",
+                contactAddressValue: "Yenibosna, Complexe Kuyumcukent, N°12, Bahçelievler, Istanbul / Turquie",
+                contactPhoneLabel: "Téléphone",
+                contactWhatsappBtn: "Discuter sur WhatsApp",
+                contactEmailLabel: "E-mail",
+                contactHoursLabel: "Heures d'Ouverture",
+                contactHoursValue: "Lundi - Samedi : 09h00 - 18h00"
+            }
+        };
+
+        // ——————————————————————————————————————————
+        // ACTIVE LANGUAGE STATE
+        // ——————————————————————————————————————————
+        let currentLang = 'ar';
+
+        // ——————————————————————————————————————————
+        // REVIEWS (YORUMLAR) — LOCAL STATE
+        // User-submitted reviews live only in this array (no backend).
+        // They persist for the current session and are merged with the
+        // per-language seed reviews whenever renderReviews() runs.
+        // ——————————————————————————————————————————
+        let userReviews = [];
+
+        // Renders the review cards for the currently active language.
+        // Seed reviews come translated from the dictionary; user-submitted
+        // reviews are rendered as typed (their content isn't machine
+        // translated), newest first.
+        function renderReviews() {
+            const t = translations[currentLang];
+            const grid = document.getElementById('reviews-grid');
+            if (!grid) return;
+
+            const allReviews = [...userReviews, ...t.seedReviews];
+            grid.innerHTML = '';
+
+            if (allReviews.length === 0) {
+                const empty = document.createElement('p');
+                empty.className = 'reviews-empty';
+                empty.textContent = t.reviewsEmpty;
+                grid.appendChild(empty);
+                return;
+            }
+
+            allReviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+
+                const stars = document.createElement('div');
+                stars.className = 'review-stars';
+                stars.textContent = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+
+                const comment = document.createElement('p');
+                comment.className = 'review-comment';
+                comment.textContent = review.comment;
+
+                const name = document.createElement('p');
+                name.className = 'review-name';
+                name.textContent = '— ' + review.name;
+
+                card.appendChild(stars);
+                card.appendChild(comment);
+                card.appendChild(name);
+                grid.appendChild(card);
+            });
+        }
+
+        // ——————————————————————————————————————————
+        // LANGUAGE CHANGE FUNCTION
+        // Updates all text nodes, direction, and form dropdown
+        // ——————————————————————————————————————————
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            const htmlTag = document.getElementById('html-tag');
+
+            // Set document language & direction
+            htmlTag.setAttribute('lang', lang);
+            htmlTag.setAttribute('dir', t.dir);
+
+            // Highlight active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-lang-' + lang).classList.add('active');
+
+            // Navigation links
+            document.getElementById('nav-home').textContent     = t.navHome;
+            document.getElementById('nav-about').textContent    = t.navAbout;
+            document.getElementById('nav-services').textContent = t.navServices;
+            document.getElementById('nav-why').textContent      = t.navWhy;
+            document.getElementById('nav-reviews').textContent  = t.navReviews;
+            document.getElementById('nav-contact').textContent  = t.navContact;
+            document.getElementById('nav-quote').textContent    = t.navQuote;
+
+            // Hero section
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-desc').textContent  = t.heroDesc;
+            document.getElementById('hero-btn').textContent   = t.heroBtn;
+
+            // Hero stats
+            document.getElementById('stat-countries').textContent = t.statCountries;
+            document.getElementById('stat-modes').textContent     = t.statModes;
+            document.getElementById('stat-support').textContent   = t.statSupport;
+
+            // About section
+            document.getElementById('about-eyebrow').textContent = t.aboutEyebrow;
+            document.getElementById('about-title').textContent   = t.aboutTitle;
+            document.getElementById('about-desc').textContent    = t.aboutDesc;
+            document.getElementById('about-mission-title').textContent = t.aboutMissionTitle;
+            document.getElementById('about-mission-desc').textContent  = t.aboutMissionDesc;
+            document.getElementById('about-vision-title').textContent  = t.aboutVisionTitle;
+            document.getElementById('about-vision-desc').textContent   = t.aboutVisionDesc;
+
+            // Services section
+            document.getElementById('services-eyebrow').textContent  = t.servicesEyebrow;
+            document.getElementById('services-main-title').textContent = t.servicesMainTitle;
+            document.getElementById('srv-road-title').textContent = t.srvRoadTitle;
+            document.getElementById('srv-road-desc').textContent  = t.srvRoadDesc;
+            document.getElementById('srv-sea-title').textContent  = t.srvSeaTitle;
+            document.getElementById('srv-sea-desc').textContent   = t.srvSeaDesc;
+            document.getElementById('srv-air-title').textContent  = t.srvAirTitle;
+            document.getElementById('srv-air-desc').textContent   = t.srvAirDesc;
+            document.getElementById('srv-customs-title').textContent = t.srvCustomsTitle;
+            document.getElementById('srv-customs-desc').textContent  = t.srvCustomsDesc;
+
+            // Why Us section
+            document.getElementById('why-eyebrow').textContent   = t.whyEyebrow;
+            document.getElementById('why-main-title').textContent = t.whyMainTitle;
+            document.getElementById('feat-1').innerHTML = t.feat1;
+            document.getElementById('feat-2').innerHTML = t.feat2;
+            document.getElementById('feat-3').innerHTML = t.feat3;
+
+            // Reviews / Yorumlar section
+            document.getElementById('reviews-eyebrow').textContent    = t.reviewsEyebrow;
+            document.getElementById('reviews-main-title').textContent = t.reviewsMainTitle;
+            document.getElementById('review-form-title').textContent  = t.reviewFormTitle;
+            document.getElementById('lbl-review-name').textContent    = t.lblReviewName;
+            document.getElementById('lbl-review-rating').textContent  = t.lblReviewRating;
+            document.getElementById('lbl-review-comment').textContent = t.lblReviewComment;
+            document.getElementById('review-name').placeholder        = t.reviewNamePlaceholder;
+            document.getElementById('review-comment').placeholder     = t.reviewCommentPlaceholder;
+            document.getElementById('btn-review-submit').textContent  = t.btnReviewSubmit;
+            renderReviews();
+
+            // Contact section
+            document.getElementById('contact-eyebrow').textContent        = t.contactEyebrow;
+            document.getElementById('contact-main-title').textContent     = t.contactMainTitle;
+            document.getElementById('contact-address-label').textContent  = t.contactAddressLabel;
+            document.getElementById('contact-address-value').textContent  = t.contactAddressValue;
+            document.getElementById('contact-phone-label').textContent    = t.contactPhoneLabel;
+            document.getElementById('contact-whatsapp-btn').textContent   = t.contactWhatsappBtn;
+            document.getElementById('contact-email-label').textContent    = t.contactEmailLabel;
+            document.getElementById('contact-hours-label').textContent    = t.contactHoursLabel;
+            document.getElementById('contact-hours-value').textContent    = t.contactHoursValue;
+
+            // Quote / Form section
+            document.getElementById('quote-eyebrow').textContent    = t.quoteEyebrow;
+            document.getElementById('quote-main-title').textContent = t.quoteMainTitle;
+            document.getElementById('lbl-name').textContent         = t.lblName;
+            document.getElementById('lbl-email').textContent        = t.lblEmail;
+            document.getElementById('lbl-phone').textContent        = t.lblPhone;
+            document.getElementById('lbl-type').textContent         = t.lblType;
+            document.getElementById('lbl-details').textContent      = t.lblDetails;
+            document.getElementById('btn-submit').textContent       = t.btnSubmit;
+
+            // Footer
+            document.getElementById('footer-text').textContent = t.footerText;
+
+            // Rebuild shipping type dropdown (with placeholder)
+            const selectType = document.getElementById('select-type');
+            const placeholders = { ar: 'اختر نمط الشحن...', en: 'Select shipping mode...', tr: 'Taşıma türü seçin...', fr: 'Sélectionnez un mode...' };
+            selectType.innerHTML = '';
+            const placeholder = document.createElement('option');
+            placeholder.value    = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            placeholder.textContent = placeholders[lang] || 'Select...';
+            selectType.appendChild(placeholder);
+            t.options.forEach(opt => {
+                const option = document.createElement('option');
+                option.text  = opt;
+                option.value = opt;
+                selectType.appendChild(option);
+            });
+        }
+
+        // ——————————————————————————————————————————
+        // FORM SUBMIT HANDLER
+        // Async/Await fetch → Formspree | No page reload
+        // Freezes the button during submission, restores after
+        // ——————————————————————————————————————————
+        document.getElementById('quote-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const form   = e.target;
+            const btn    = document.getElementById('btn-submit');
+            const lang   = currentLang;
+
+            // Labels per language for the sending state
+            const sendingLabels = { ar: 'جاري الإرسال...', en: 'Sending...', tr: 'Gönderiliyor...', fr: 'Envoi en cours...' };
+            const originalLabel = btn.textContent;
+
+            // Freeze button
+            btn.disabled    = true;
+            btn.textContent = sendingLabels[lang] || 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method:  'POST',
+                    body:    new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert(translations[lang].alertMsg);
+                    form.reset();
+                    // Rebuild the placeholder option after reset
+                    const placeholders = { ar: 'اختر نمط الشحن...', en: 'Select shipping mode...', tr: 'Taşıma türü seçin...', fr: 'Sélectionnez un mode...' };
+                    const sel = document.getElementById('select-type');
+                    const placeholder = document.createElement('option');
+                    placeholder.value    = '';
+                    placeholder.disabled = true;
+                    placeholder.selected = true;
+                    placeholder.textContent = placeholders[lang] || 'Select...';
+                    sel.insertBefore(placeholder, sel.firstChild);
+                } else {
+                    const data = await response.json();
+                    const errMsg = (data && data.errors)
+                        ? data.errors.map(err => err.message).join(', ')
+                        : 'Submission failed. Please try again.';
+                    alert(errMsg);
+                }
+            } catch (err) {
+                alert('Network error. Please check your connection and try again.');
+            } finally {
+                // Always restore button
+                btn.disabled    = false;
+                btn.textContent = originalLabel;
+            }
+        });
+
+        // ——————————————————————————————————————————
+        // REVIEWS (YORUMLAR) FORM SUBMIT HANDLER
+        // Purely local/client-side — pushes the new review into the
+        // userReviews array and instantly re-renders the grid in the
+        // currently active language. No network request involved.
+        // ——————————————————————————————————————————
+        document.getElementById('review-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameInput    = document.getElementById('review-name');
+            const ratingSelect = document.getElementById('review-rating');
+            const commentInput = document.getElementById('review-comment');
+
+            const name    = nameInput.value.trim();
+            const rating  = parseInt(ratingSelect.value, 10);
+            const comment = commentInput.value.trim();
+
+            if (!name || !comment || !rating) return;
+
+            userReviews.unshift({ name, rating, comment });
+            renderReviews();
+
+            e.target.reset();
+        });
+
+        // ——————————————————————————————————————————
+        // MOBILE NAVIGATION TOGGLE
+        // ——————————————————————————————————————————
+        const navToggle = document.getElementById('nav-toggle');
+        const mainNav   = document.getElementById('main-nav');
+
+        navToggle.addEventListener('click', function () {
+            const isOpen = mainNav.classList.toggle('nav-open');
+            navToggle.classList.toggle('is-open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close nav when a link is clicked (mobile)
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('nav-open');
+                navToggle.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ——————————————————————————————————————————
+        // STICKY HEADER SHADOW ON SCROLL
+        // ——————————————————————————————————————————
+        window.addEventListener('scroll', function () {
+            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 10);
+        });
+
+        // ——————————————————————————————————————————
+        // INITIALISE — default language: Arabic
+        // ——————————————————————————————————————————
+        changeLanguage('ar');
+
+    </script>
+</body>
+</html>
